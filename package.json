@@ -1,0 +1,8 @@
+{
+  "name"         : "snowdrop",
+  "version"      : "0.9.0",
+  "preferGlobal" : true,
+  "bin"          : {
+    "snowdrop"   : "snowdrop.js"
+  }
+}

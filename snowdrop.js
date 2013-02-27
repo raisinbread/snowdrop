@@ -20,7 +20,6 @@ async.filter(configFilePaths, fs.exists, function(results){
   if(results.length > 0) {
     configFile = results.pop();
     require('./lib/observe').observe(markerFileName);
-    // start watching, based on config
   } else {
     console.log(clc.red('No config file exists.'));
     console.log(clc.yellow("Initializing config at " + process.cwd() + path.sep + markerFileName));

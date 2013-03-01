@@ -1,0 +1,4 @@
++ commands to run on init (mvim .)
++ fix issue where rsync copies to subdir
++ warnings for --delete (maybe on first update, if list is long, double
+check?)

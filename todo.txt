@@ -1,6 +1,5 @@
-+ commands to run on init (mvim .)
 + update right after init?
-+ CTAGS - http://vim.wikia.com/wiki/Browsing_programs_with_tags
 + tests
 + disable rsync
++ docs
 

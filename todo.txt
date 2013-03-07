@@ -1,5 +1,3 @@
-+ update right after init?
 + tests
 + disable rsync
 + docs
-

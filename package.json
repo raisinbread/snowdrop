@@ -1,7 +1,7 @@
 {
   "name"         : "snowdrop",
   "description"  : "A utility that watches a local folder for changes and acts as files in that folder change.",
-  "keywords"     : ['rsync', 'vim', 'ctags', 'tags', 'watch', 'guard'],
+  "keywords"     : ["rsync", "vim", "ctags", "tags", "watch", "guard"],
   "repository"   : {
     "type"       : "git",
     "url"        : "git://github.com/raisinbread/snowdrop.git"
@@ -14,9 +14,9 @@
   "author"       : "John Anderson <anderson.johnd@gmail.com>",
   "dependencies" : {
     "async"      : "0.2.x",
-    "cli-color"  : "0.9.x",
+    "cli-color"  : "0.2.x",
     "clock"      : "0.1.x",
-    "dateformat" : "1.2.x",
+    "dateformat" : "1.0.4-1.2.3",
     "rsync"      : "0.0.x"
   },
   "engines"      : {

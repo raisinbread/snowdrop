@@ -10,7 +10,7 @@
     "url"        : "http://github.com/raisinbread/snowdrop/issues"
   },
   "homepage"     : "https://github.com/raisinbread/snowdrop",
-  "version"      : "0.9.0",
+  "version"      : "0.9.1",
   "author"       : "John Anderson <anderson.johnd@gmail.com>",
   "dependencies" : {
     "async"      : "0.2.x",

@@ -1,5 +1,8 @@
+// mocha --ignore-leaks -R Spec
+
 var assert = require('assert')
 , snowdrop = require('../snowdrop')
+, create = require('../lib/create')
 , fs = require('fs')
 , sys   = require('sys')
 , exec  = require('child_process').exec
@@ -64,6 +67,51 @@ describe('Snowdrop', function() {
   after(function(done) {
     exec('rm -rf ' + testDirBase, function(err, stdout, stderr) {
       if (err) throw err;
+      done();
+    });
+  });
+});
+
+var createTestDir = '/tmp/snowdrop-test-c';
+var origCwd = process.cwd();
+
+describe("Create", function() {
+
+  before(function(done) {
+    exec('mkdir ' + createTestDir, function(err, stdout, stderr) {
+      if (err) throw err;
+      process.chdir(createTestDir);
+      create.write('.snowdrop.json', {});
+      create.write('.snowdrop2.json', {"destination":"foo"});
+      done();
+    });
+  });
+
+  describe("#write", function() {
+    it('write a file based on input', function() {
+      assert.equal(fs.existsSync(createTestDir + '/.snowdrop.json'), true);
+    });
+    it('is valid JSON', function() {
+      options = require(createTestDir + '/.snowdrop.json');
+      assert.notEqual(typeof(options.ignore), 'undefined');
+      assert.notEqual(typeof(options.source), 'undefined');
+      assert.notEqual(typeof(options.destination), 'undefined');
+      assert.notEqual(typeof(options.init), 'undefined');
+      assert.notEqual(typeof(options.rsync), 'undefined');
+    });
+    it('adjusts written file based on input', function() {
+      options = require(createTestDir + '/.snowdrop.json');
+      options2 = require(createTestDir + '/.snowdrop2.json');
+      assert.equal(options.ignore[0], options2.ignore[0]);
+      assert.equal(options.ignore[1], options2.ignore[1]);
+      assert.notEqual(options.destination, options2.destination);
+    });
+  });
+
+  after(function(done) {
+    exec('rm -rf ' + createTestDir, function(err, stdout, stderr) {
+      if (err) throw err;
+      process.chdir(origCwd);
       done();
     });
   });

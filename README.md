@@ -52,6 +52,7 @@ The config file contains a JSON object with the following properties:
 - `source`: The local directory to sync. Shouldn't normally be changed.
 - `destination`: The remote folder to sync to. Set to `false` if you do
   not want to use rsync.
+- `port`: The port of your server.
 - `ignore`: If a regular expression in this array matches a filename,
   snowdrop will not act when that file changes. Ignores `.git` and
   `tags` by default.
